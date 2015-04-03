@@ -127,8 +127,8 @@ func main() {
 	}
 
 	mode = "w"
+	finish = make(chan int, threads)
 	for i := 0; i < 2; i++ {
-		finish = make(chan int, threads)
 		begin := time.Now()
 		switch db {
 		case "mongo":
@@ -142,7 +142,7 @@ func main() {
 		}
 
 		end := time.Since(begin)
-		fmt.Printf("mode %s\n:threads: %d\nper thread: %d\ntotal time:%v\n", mode, threads, perSess, end)
+		fmt.Printf("mode %s\nthreads: %d\nper thread: %d\ntotal time:%v\n\n", mode, threads, perSess, end)
 		mode = "r"
 	}
 
