@@ -2,7 +2,7 @@
 测试redis和mongo等的速度
 用法
 ```
- go run benchmark -d mongo -u  mgo1:8888 -t 2
+ go run benchmark.go -d mongo -u  mgo1:8888 -t 2
 ```
 表示用两个线程，每个线程插入和读取1万次，的时间结果为
 ```
