@@ -1,6 +1,6 @@
 # db_benchmark
 测试redis和mongo等的速度
-用法
+用法 －d数据库 ，－u 数据库 url －t 线程数量
 ```
  go run benchmark.go -d mongo -u  mgo1:8888 -t 2
 ```
