@@ -11,17 +11,19 @@ import (
 	"time"
 )
 
-var threads int
-var passwd string
-var url string
-var db string
-var mode string
-var perSess = 10000
-var data = struct {
-	Table string
-	Key   string
-	Value string
-}{"test", "key", "value"}
+var (
+	threads int     //线程数量
+	passwd  string  //redis的密码，mongo的密码信息在url里面
+	url     string  //db的连接url
+	db      string  //表示要测试的db，mongo or redis
+	mode    string  // 表示模式，内部用 r w 表示读 写
+	perSess = 10000 //表示每个线程读写的次数
+	data    = struct {
+		Table string
+		Key   string
+		Value string
+	}{"test", "key", "value"} //表结构和 key value
+)
 
 func init() {
 	flag.IntVar(&threads, "t", 1, "multiple threads")
